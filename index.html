@@ -1,19 +1,91 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Crystal Challenge</title>
-    
+    <title>Crystals Collector!</title>
+
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="reset.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 
-    <script src="game.js"></script>
+    <script src="assets/javascript/game.js"></script>
 </head>
+
 <body>
-    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div id="banner" class="m-1 p-3">Crystals Collector!</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-9">
+                <div id="instructions" class="m-1 p-3">
+                    <p>You will be given a random number at the start of the game </p>
+                    <p>There are four crystals below. By clikcing on a crystal you will add a specific amount of points
+                        to your total score</p>
+                    <p>You win the game by matching your total score to the random number, you lose the game if your
+                        total score goes above the random number </p>
+                    <p>The value of each crystal is hidden from you until you click on it</p>
+                    <p>Each time when the game starts, the game will change the values of each crystal</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="scores">
+            <div class="row">
+                <div class="col-xs-6 col-md-3 m-1 p-3">
+                    <div id="gameboard"> 0</div>
+                </div>
+                <div class="col-xs-6 col-md-3 m-1 p-3">
+                    <div id="scoreboard">
+                        <p class="scoreLbl">Wins: <span id="wins">0</span></p>
+                        <p class="scoreLbl">Losses: <span id="losses">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="crystals">
+            <div class="row">
+                <div class="col-xs-3 col-md-2 m-1 p-1">
+                    <button id="redbtn" onClick="javascript:red_click()"><img class="crystalbtn" src="assets/images/red.jpg" /></button>
+                </div>
+                <div class="col-xs-3 col-md-2 m-1 p-1">
+                    <button id="bluebtn" onClick="javascript:blue_click()"><img class="crystalbtn" src="assets/images/blue.jpg" /></button>
+                </div>
+                <div class="col-xs-3 col-md-2 m-1 p-1">
+                    <button id="yellowbtn" onClick="javascript:yellow_click()"><img class="crystalbtn" src="assets/images/yellow.jpg" /></button>
+                </div>
+                <div class="col-xs-3 col-md-2 m-1 p-1">
+                    <button id="greenbtn" onClick="javascript:green_click()"><img class="crystalbtn" src="assets/images/green.jpg" /></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="totals">
+            <div class="row">
+                <div class="col-xs-6 col-md-4">
+                    <h5 id="totalHdr" class="m-1 p-3"> Your total score is:</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-md-4">
+                    <div id="total" class="m-1 p-3">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>
