@@ -44,6 +44,12 @@ document.onkeyup = function(event) {
         case "G":
             game.crystalGuess('green');
             break;
+            
+        case "s":
+        case "S":
+            game.computeSolution();
+            console.log("onKeyUp():  solution: " + game.solution);
+            break; 
 
         default:
             console.log("onKeyUp() event:  Oops, invalid key '" + userGuess + "', we only need letters R, B, Y, G");
