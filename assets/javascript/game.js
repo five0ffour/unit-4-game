@@ -12,6 +12,7 @@ var game = {
     greenValue: 0,
     wins: 0,
     losses: 0,
+    won: false,
 
     // generateRandomNum() - randomly generates a number within the specified range
     generateRandomNum : function (low, high) {
@@ -22,6 +23,7 @@ var game = {
 
     // resetGame - clears the board and resets the target value and crystal nums for a new game
     resetGame: function () {
+        this.won = false;
         this.targetNum = this.generateRandomNum(19, 120);
         this.redValue = this.generateRandomNum(1, 12);
         this.blueValue = this.generateRandomNum(1, 12);
@@ -38,11 +40,13 @@ var game = {
     // wonGame() - updates if game's victory conditions are met
     wonGame : function () {
         this.wins++;
+        this.won = true;
     },
 
     // lostGame() - updates if game's victory conditions are exceeded
     lostGame : function () {
         this.losses++;
+        this.won = false;
     },
     
     // checkGameEnd() - return flag if we met the game end conditions, update win/losses appropriately
@@ -58,7 +62,7 @@ var game = {
         else 
             this.lostGame();
 
-        return gameOver;
+        return true;
     },
 
     // crystalGuess() - player made a guess using a crystal
@@ -89,6 +93,13 @@ var game = {
 
         console.log("game.crystalGuess() - guessed with " + color + " crystal, current number is now " + this.currentNum);
 
+        // Determine if this move ends the game 
+        if (this.checkGameEnd()) {
+            if (this.won === true)                
+                alert("You won!");
+            else
+                alert("Sorry, you lost! Better luck next time");
+        }
     }
 
 }
