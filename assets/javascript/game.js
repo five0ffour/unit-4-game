@@ -17,7 +17,7 @@ var game = {
     // generateRandomNum() - randomly generates a number within the specified range
     generateRandomNum : function (low, high) {
         var num = (Math.floor(Math.random() * (high - low + 1) + low));
-        console.log("game.generateRandomNum() - The randomly selected num between " + low + " and " + high + " is: \"" + num + "\"");
+        // console.log("game.generateRandomNum() - The randomly selected num between " + low + " and " + high + " is: \"" + num + "\"");
         return num;
     },
 

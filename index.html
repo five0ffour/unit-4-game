@@ -22,16 +22,23 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12 col-md-6">
-                <div id="banner" class="m-1 p-3">Crystals Collector!</div>
+    <!-- Banner & Navigation -->
+    <header>
+        <div class="container-fluid noPadding">
+            <div class="jumbotron jumbotron-welcome">
+                <div class="row">
+                    <div class="col-lg-6 offset-sm-3" style="opacity: 0.75">
+                        <h1 class="banner p-3 rounded">Crystals Collector!</h1>
+                    </div>
+                </div>
             </div>
         </div>
+    </header>
 
+    <div class="container-fluid noPadding">
         <div class="row">
-            <div class="col-xs-12 col-md-9">
-                <div id="instructions" class="m-1 p-3">
+            <div class="col-lg-12">
+                <div id="instructions" class="m-1 p-3 rounded">
                     <p>You will be given a random number at the start of the game </p>
                     <p>There are four crystals below. By clikcing on a crystal you will add a specific amount of points
                         to your total score</p>
@@ -45,51 +52,48 @@
 
         <div id="scores">
             <div class="row">
-                <div class="col-xs-6 col-md-3 m-1 p-3">
-                    <div id="targetNum"> 0</div>
+                <div class="col-xs-6 col-md-3">
+                    <h5 id="targetHdr" class="m-1 p-3"> Target to hit exactly:</h5>
+                    <div id="targetNum" class="m-1 p-3"> 0</div>
                 </div>
-                <div class="col-xs-6 col-md-3 m-1 p-3">
-                    <div id="scoreboard">
+                <div class="col-xs-6 col-md-3">
+                    <div id="totals">
+                        <h5 id="totalHdr" class="m-1 p-3"> Your current count is:</h5>
+                        <div id="totalNum" class="m-1 p-3">0</div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <h5 id="scoreHdr" class="m-1 p-3"> Scoreboard:</h5>
+                    <div id="scoreboard"  class="m-1 p-3">
                         <p class="scoreLbl">Wins: <span id="wins">0</span></p>
                         <p class="scoreLbl">Losses: <span id="losses">0</span></p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div id="crystals">
-            <div class="row">
-                <div class="col-xs-3 col-md-2 m-1 p-1">
-                    <button id="redbtn" onclick="game.crystalGuess('red')"><img class="crystalbtn" src="assets/images/red.jpg" /></button>
-                </div>
-                <div class="col-xs-3 col-md-2 m-1 p-1">
-                    <button id="bluebtn" onclick="game.crystalGuess('blue')"><img class="crystalbtn" src="assets/images/blue.jpg" /></button>
-                </div>
-                <div class="col-xs-3 col-md-2 m-1 p-1">
-                    <button id="yellowbtn" onclick="game.crystalGuess('yellow')"><img class="crystalbtn" src="assets/images/yellow.jpg" /></button>
-                </div>
-                <div class="col-xs-3 col-md-2 m-1 p-1">
-                    <button id="greenbtn" onclick="game.crystalGuess('green')"><img class="crystalbtn" src="assets/images/green.jpg" /></button>
-                </div>
+    <div id="crystals">
+        <div class="row">
+            <div class="col-md-2 m-2">
+                <button id="redbtn" onclick="game.crystalGuess('red')"><img class="crystalbtn" src="assets/images/red.jpg" /></button>
+            </div>
+            <div class="col-md-2 m-2">
+                <button id="bluebtn" onclick="game.crystalGuess('blue')"><img class="crystalbtn" src="assets/images/blue.jpg" /></button>
+            </div>
+            <div class="col-md-2 m-2">
+                <button id="yellowbtn" onclick="game.crystalGuess('yellow')"><img class="crystalbtn" src="assets/images/yellow.jpg" /></button>
+            </div>
+            <div class="col-md-2 m-2">
+                <button id="greenbtn" onclick="game.crystalGuess('green')"><img class="crystalbtn" src="assets/images/green.jpg" /></button>
             </div>
         </div>
-
-        <div id="totals">
-            <div class="row">
-                <div class="col-xs-6 col-md-4">
-                    <h5 id="totalHdr" class="m-1 p-3"> Your total score is:</h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-6 col-md-4">
-                    <div id="totalNum" class="m-1 p-3">0</div>
-                </div>
-            </div>
-        </div>
+    </div>
     </div>
 
     <!-- Javascript variable and function declarations -->
     <script src="assets/javascript/game.js"></script>
+    <script src="assets/javascript/input.js"></script>
     <script src="assets/javascript/prompts.js"></script>
 
     <!-- Load the game -->
