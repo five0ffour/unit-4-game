@@ -24,6 +24,7 @@ var game = {
     // resetGame - clears the board and resets the target value and crystal nums for a new game
     resetGame: function () {
         this.won = false;
+        this.currentNum = 0;
         this.targetNum = this.generateRandomNum(19, 120);
         this.redValue = this.generateRandomNum(1, 12);
         this.blueValue = this.generateRandomNum(1, 12);
@@ -95,11 +96,11 @@ var game = {
 
         // Determine if this move ends the game 
         if (this.checkGameEnd()) {
-            if (this.won === true)                
-                alert("You won!");
-            else
-                alert("Sorry, you lost! Better luck next time");
+            this.resetGame();
         }
+
+        // Update Screen with latest stats
+        prompts.reportResults(this);
     }
 
 }

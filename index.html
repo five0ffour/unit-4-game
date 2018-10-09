@@ -46,7 +46,7 @@
         <div id="scores">
             <div class="row">
                 <div class="col-xs-6 col-md-3 m-1 p-3">
-                    <div id="gameboard"> 0</div>
+                    <div id="targetNum"> 0</div>
                 </div>
                 <div class="col-xs-6 col-md-3 m-1 p-3">
                     <div id="scoreboard">
@@ -82,7 +82,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-6 col-md-4">
-                    <div id="total" class="m-1 p-3">0</div>
+                    <div id="totalNum" class="m-1 p-3">0</div>
                 </div>
             </div>
         </div>
@@ -90,11 +90,13 @@
 
     <!-- Javascript variable and function declarations -->
     <script src="assets/javascript/game.js"></script>
-    <script src="assets/javascript/input.js"></script>
+    <script src="assets/javascript/prompts.js"></script>
 
     <!-- Load the game -->
     <script type="text/javascript">
+        prompts.getElementIds(document);
         game.resetGame();
+        prompts.reportResults(game);
     </script>
 
 </body>
