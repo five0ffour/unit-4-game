@@ -13,10 +13,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 
-    <script src="assets/javascript/game.js"></script>
 </head>
 
 <body>
@@ -58,16 +60,16 @@
         <div id="crystals">
             <div class="row">
                 <div class="col-xs-3 col-md-2 m-1 p-1">
-                    <button id="redbtn" onClick="javascript:red_click()"><img class="crystalbtn" src="assets/images/red.jpg" /></button>
+                    <button id="redbtn"><img class="crystalbtn" src="assets/images/red.jpg" /></button>
                 </div>
                 <div class="col-xs-3 col-md-2 m-1 p-1">
-                    <button id="bluebtn" onClick="javascript:blue_click()"><img class="crystalbtn" src="assets/images/blue.jpg" /></button>
+                    <button id="bluebtn"><img class="crystalbtn" src="assets/images/blue.jpg" /></button>
                 </div>
                 <div class="col-xs-3 col-md-2 m-1 p-1">
-                    <button id="yellowbtn" onClick="javascript:yellow_click()"><img class="crystalbtn" src="assets/images/yellow.jpg" /></button>
+                    <button id="yellowbtn"><img class="crystalbtn" src="assets/images/yellow.jpg" /></button>
                 </div>
                 <div class="col-xs-3 col-md-2 m-1 p-1">
-                    <button id="greenbtn" onClick="javascript:green_click()"><img class="crystalbtn" src="assets/images/green.jpg" /></button>
+                    <button id="greenbtn"><img class="crystalbtn" src="assets/images/green.jpg" /></button>
                 </div>
             </div>
         </div>
@@ -85,6 +87,15 @@
             </div>
         </div>
     </div>
+
+    <!-- Javascript variable and function declarations -->
+    <script src="assets/javascript/game.js"></script>
+    <script src="assets/javascript/input.js"></script>
+
+    <!-- Load the game -->
+    <script type="text/javascript">
+        game.resetGame();
+    </script>
 
 </body>
 
