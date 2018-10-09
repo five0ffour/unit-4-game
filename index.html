@@ -36,43 +36,72 @@
     </header>
 
     <div class="container-fluid noPadding">
+
+        <!--  ROW - Instructions -->
         <div class="row">
             <div class="col-lg-12">
-                <div id="instructions" class="m-1 p-3 rounded">
-                    <p>You will be given a random number at the start of the game </p>
-                    <p>There are four crystals below. By clikcing on a crystal you will add a specific amount of points
-                        to your total score</p>
-                    <p>You win the game by matching your total score to the random number, you lose the game if your
-                        total score goes above the random number </p>
-                    <p>The value of each crystal is hidden from you until you click on it</p>
-                    <p>Each time when the game starts, the game will change the values of each crystal</p>
+                <div class="card mb-4" id="instructions">
+                    <div class="card-header text-white">Instructions</div>
+                    <div class="card-body bg-light">
+                        <p class="card-text small">
+                            <p>You will be given a random number at the start of the game </p>
+                            <p>There are four crystals below. By clicking on a crystal you will add a specific amount
+                                of points to your total score</p>
+                            <p>You win the game by matching your total score to the random number, you lose the game if
+                                your total score goes above the random number </p>
+                            <p>The value of each crystal is hidden from you until you click on it</p>
+                            <p>Each time when the game starts, the game will change the values of each crystal</p>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="scores">
-            <div class="row">
-                <div class="col-xs-6 col-md-3">
-                    <h5 id="targetHdr" class="m-1 p-3"> Target to hit exactly:</h5>
-                    <div id="targetNum" class="m-1 p-3"> 0</div>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <div id="totals">
-                        <h5 id="totalHdr" class="m-1 p-3"> Your current count is:</h5>
-                        <div id="totalNum" class="m-1 p-3">0</div>
+        <!--  ROW - Score Cards -->
+        <div class="row">
+
+            <!-- COL 1- Game Target Card -->
+            <div class="col-xs-6 col-md-3">
+                <div class="card mb-4" id="targetHdr">
+                    <div class="card-header text-center text-white">Target to hit (exactly)</div>
+                    <div class="card-body bg-light">
+                        <p class="card-text medium">
+                            <div id="targetNum" class="font-weight-bold text-center rounded p-3">0</div>
+                        </p>
                     </div>
                 </div>
-                <div class="col-xs-6 col-md-3">
-                    <h5 id="scoreHdr" class="m-1 p-3"> Scoreboard:</h5>
-                    <div id="scoreboard"  class="m-1 p-3">
-                        <p class="scoreLbl">Wins: <span id="wins">0</span></p>
-                        <p class="scoreLbl">Losses: <span id="losses">0</span></p>
+            </div>
+
+            <!-- COL 2- Curret Tally Card -->
+            <div class="col-xs-6 col-md-3">
+                <div class="card mb-4" id="totalHdr">
+                    <div class="card-header text-center text-white">Current Tally</div>
+                    <div class="card-body bg-light">
+                        <p class="card-text medium">
+                            <div id="totalNum" class="font-weight-bold text-center rounded p-3">0</div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COL 3- Overall Score Card -->
+            <div class="col-xs-6 col-md-3">
+                <div class="card mb-4" id="scoreHdr">
+                    <div class="card-header text-center text-white">Score Card</div>
+                    <div class="card-body bg-light">
+                        <p class="card-text medium">
+                            <div id="scoreboard" class="text-center rounded p-3">
+                                <p class="scoreLbl">Wins: <span id="wins">0</span></p>
+                                <p class="scoreLbl">Losses: <span id="losses">0</span></p>
+                            </div>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!--  ROW - Crystal Buttons -->
     <div id="crystals">
         <div class="row">
             <div class="col-md-2 m-2">

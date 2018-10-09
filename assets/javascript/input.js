@@ -46,7 +46,7 @@ document.onkeyup = function(event) {
             break;
 
         default:
-            prompts.status("onKeyUp() event:  Oops, invalid key '" + userGuess + "', we only need letters R, B, Y, G");
+            console.log("onKeyUp() event:  Oops, invalid key '" + userGuess + "', we only need letters R, B, Y, G");
             break;
     }
 }
