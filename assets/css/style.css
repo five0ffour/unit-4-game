@@ -39,10 +39,11 @@ p {
 
 #crystals {
     overflow: hidden;
+    height: 15%
 }
 
 .crystalbtn {
-    height: 15%;
+    height: 100%;
 }
 
 /* ------ Target Card -----  */
