@@ -9,6 +9,7 @@ p {
     padding: 0.5em;
 }
 
+/* ------ Header Bar -------- */
 .banner {
     background-color: darkorange;
     color: darkblue;
@@ -22,7 +23,11 @@ p {
     background-position: center;
     background-repeat: no-repeat;
     color: white;
+    height: 20%;
+    overflow: hidden;
 }
+
+/* ------ Instruction Card -------- */
 
 #instructions {
     text-align: left;
@@ -30,13 +35,14 @@ p {
     background-color: tan;
 }
 
+/* -----  Crystal Buttons -------*/
+
 #crystals {
-    margin: 0.5em;
+    overflow: hidden;
 }
 
 .crystalbtn {
-    width: 100px;
-    height: 100px;
+    height: 15%;
 }
 
 /* ------ Target Card -----  */

@@ -45,7 +45,8 @@
                     <div class="card-body bg-light">
                         <p class="card-text small">
                             <p>You will be given a random number at the start of the game </p>
-                            <p>There are four crystals below. By clicking on a crystal (or hitting r/b/y/g) you will add a specific amount
+                            <p>There are four crystals below. By clicking on a crystal (or hitting r/b/y/g) you will
+                                add a specific amount
                                 of points to your total score</p>
                             <p>You win the game by matching your total score to the random number, you lose the game if
                                 your total score goes above the random number </p>
@@ -99,25 +100,16 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!--  ROW - Crystal Buttons -->
-    <div id="crystals">
-        <div class="row">
-            <div class="col-md-2 m-2">
+        <!--  ROW - Crystal Buttons -->
+        <div class="row crystals">
+            <div class="col-xs-12 m-3">
                 <button id="redbtn" onclick="game.crystalGuess('red')"><img class="crystalbtn" src="assets/images/red.jpg" /></button>
-            </div>
-            <div class="col-md-2 m-2">
                 <button id="bluebtn" onclick="game.crystalGuess('blue')"><img class="crystalbtn" src="assets/images/blue.jpg" /></button>
-            </div>
-            <div class="col-md-2 m-2">
                 <button id="yellowbtn" onclick="game.crystalGuess('yellow')"><img class="crystalbtn" src="assets/images/yellow.jpg" /></button>
-            </div>
-            <div class="col-md-2 m-2">
                 <button id="greenbtn" onclick="game.crystalGuess('green')"><img class="crystalbtn" src="assets/images/green.jpg" /></button>
             </div>
         </div>
-    </div>
     </div>
 
     <!-- Javascript variable and function declarations -->

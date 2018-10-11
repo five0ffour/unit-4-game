@@ -108,6 +108,7 @@ var game = {
     // computeSoluton() - looks to find an answer in the solution set using a largest value first algorithm
     //                  - puts the answer in the game object's solution array
     computeSolution: function () {
+        var found = false;
         var count = 0;
         var crystals = [];
 
@@ -126,31 +127,38 @@ var game = {
         });
 
         /* Loop through the crystals, pop the largest crystal and apply the total */
-        /* Save the crystal for the next loop if we have room                     */
-        while ((crystals.length > 0) && (count <= this.targetNum)) {
-
-            // Get the biggest crystal left
-            var num = crystals.pop();
-
-            // Apply the crystal if there is room, save it in the solution set
-            if (count + num <= this.targetNum) {
-                count += num;
-                this.solution.push(num);
-
-                if (this.targetNum === count) {
-                    // Solution Found -  Stop!!
-                    console.log("games.computeSolution() - we found one!");
-                    return;
-                } else if ((this.targetNum - count) >= num) {
-                    // if we can still deduct the largest number, push it back on the stack and run again
-                    crystals.push(num);
-                }
-            } else {
-                // Undo the last move and loop again
-                var undoNum = this.solution.pop();
-                count -= undoNum;
+        var num = 0;
+        while (!found) {
+            if (crystals.length > 0) {
+                num = crystals.pop();
             }
+
+            if (count === this.targetNum) {
+                // Solution Found
+                found = true;
+                console.log("computeSolution() - we found a solution!!");
+            } else if (count < this.targetNum) {
+                // Under the target
+                this.solution.push(num);
+                crystals.push(num);
+                count += num;
+            } else {
+                // Overshot the target, undo last move
+                count -= this.solution.pop();
+            }
+
+            if (crystals.length == 0) {
+                if (!found) {
+                    console.log("computeSolution() -- we couldn't find a solution");
+                }
+                return;
+            }
+            
+            // Dump stack for debugging
+            console.log(this.solution);
+
         }
 
+       return found;
     }
 }
