@@ -129,10 +129,13 @@ var game = {
         /* Loop through the crystals, pop the largest crystal and apply the total */
         var num = 0;
         while (!found) {
+
+            // Grab the top crystal
             if (crystals.length > 0) {
                 num = crystals.pop();
             }
 
+            // Apply it to the solution
             if (count === this.targetNum) {
                 // Solution Found
                 found = true;

@@ -57,7 +57,7 @@ p {
     background-color: mediumseagreen;
     color: purple;
     font-size: 2.0em;
-    height: 150px;
+    height: 15%;
 }
 
 /* ------ User's Total Card -----  */
@@ -73,7 +73,7 @@ p {
     background-color: teal;
     color: white;
     font-size: 2.0em;
-    height: 150px;
+    height: 15%;
 }
 
 /* ------ Overall Score Card -----  */
@@ -88,5 +88,5 @@ p {
     background-color: mediumturquoise;
     color: darkblue;
     font-size: 1.5em;
-    height: 150px;
+    height: 15%;
 }
