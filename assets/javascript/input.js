@@ -19,40 +19,55 @@ var input = {
 
 };
 
-document.onkeyup = function(event) {
+$(document).ready(function () {
 
-    // Get keystroke
-    var userGuess = event.key.toLowerCase();
+    document.onkeyup = function (event) {
 
-    switch (userGuess) {
-        case "r":
-        case "R":
-            game.crystalGuess('red');
-            break;
+        // Get keystroke
+        var userGuess = event.key.toLowerCase();
 
-        case "b":
-        case "B":
-            game.crystalGuess('blue');
-            break;
+        switch (userGuess) {
+            case "r":
+            case "R":
+                game.crystalGuess('red');
+                break;
 
-        case "y":
-        case "Y":
-            game.crystalGuess('yellow');
-            break;
+            case "b":
+            case "B":
+                game.crystalGuess('blue');
+                break;
 
-        case "g":
-        case "G":
-            game.crystalGuess('green');
-            break;
-            
-        case "s":
-        case "S":
-            game.computeSolution();
-            console.log("onKeyUp():  solution: " + game.solution);
-            break; 
+            case "y":
+            case "Y":
+                game.crystalGuess('yellow');
+                break;
 
-        default:
-            console.log("onKeyUp() event:  Oops, invalid key '" + userGuess + "', we only need letters R, B, Y, G");
-            break;
+            case "g":
+            case "G":
+                game.crystalGuess('green');
+                break;
+
+            case "s":
+            case "S":
+                game.computeSolution();
+                console.log("onKeyUp():  solution: " + game.solution);
+                break;
+
+            case "t":
+            case "T": {
+                var inputArray = [];         
+                inputArray.push(7);
+                inputArray.push(3);
+                inputArray.push(11);
+                inputArray.push(9);      
+                var sol = findAllSolutions(inputArray,40);
+                console.log("onKeyUp() - tree() ", sol);
+                break; 
+            }
+
+            default:
+                console.log("onKeyUp() event:  Oops, invalid key '" + userGuess + "', we only need letters R, B, Y, G");
+                break;
+        }
     }
-}
+});

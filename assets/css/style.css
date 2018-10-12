@@ -43,9 +43,10 @@ p {
 }
 
 .crystalbtn {
-    max-width: 100%;
+    min-width: 100px;
     height: auto;
     width: 100px;
+    height: 100px;
 }
 
 /* ------ Target Card -----  */
@@ -60,7 +61,7 @@ p {
     background-color: mediumseagreen;
     color: purple;
     font-size: 2.0em;
-    height: 15%;
+    height: 4em;
 }
 
 /* ------ User's Total Card -----  */
@@ -76,7 +77,7 @@ p {
     background-color: teal;
     color: white;
     font-size: 2.0em;
-    height: 15%;
+    height: 4em;
 }
 
 /* ------ Overall Score Card -----  */
@@ -91,5 +92,5 @@ p {
     background-color: mediumturquoise;
     color: darkblue;
     font-size: 1.5em;
-    height: 15%;
+    /* height: 15%; */
 }

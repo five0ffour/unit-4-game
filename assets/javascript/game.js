@@ -107,6 +107,7 @@ var game = {
 
     // computeSoluton() - looks to find an answer in the solution set using a largest value first algorithm
     //                  - puts the answer in the game object's solution array
+    //                  - not quite right yet.
     computeSolution: function () {
         var found = false;
         var count = 0;
