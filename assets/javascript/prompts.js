@@ -40,7 +40,7 @@ var prompts = {
     // reportResutls() - updates the stored DOM display elements with the passed results
     //---
     reportResults: function (game) {
-        $("#targetNum").text(game.wins);
+        $("#wins").text(game.wins);
         $("#losses").text(game.losses);
         $("#targetNum").text(game.targetNum);
         $("#totalNum").text(game.currentNum);
