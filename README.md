@@ -8,7 +8,7 @@ The "trick" in the game is that the value of each crystal isn't revealed directl
 
 From there,  keep adding crystals until you've matched or exceed the total score.   A match counts as a win,  and overshoot is a loss, those are reflected on the scoreboard card.   The game will automatically reset the counters,  randomize new crystal values and start again.
 
-The game has a couple of features available to the keyboard using upper or lower case keys:
+The game has a couple of features available to the keyboard using upper or lower case keys:  
     R, B, Y, G --  plays the corresponding crystal  
     I          --  toggles the instruction card on and off  
     H          --  toggles a hint card to show the crystal values and solution (see 'S' key)  
