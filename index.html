@@ -46,12 +46,13 @@
                         <p class="card-text small">
                             <p>You will be given a random number at the start of the game </p>
                             <p>There are four crystals below. By clicking on a crystal (or hitting r/b/y/g) you will
-                                add a specific amount
-                                of points to your total score</p>
+                                add a specific amount of points to your total score</p>
                             <p>You win the game by matching your total score to the random number, you lose the game if
                                 your total score goes above the random number </p>
                             <p>The value of each crystal is hidden from you until you click on it</p>
                             <p>Each time when the game starts, the game will change the values of each crystal</p>
+                            <p class="text-info">Tip: Hit "i" to hide/show these instructions</p>
+                            <p class="text-info">Hint: if you get stuck, use 'h' to get a the hint (shhhh! I won't tell!)</p>
                         </p>
                     </div>
                 </div>
@@ -103,12 +104,49 @@
         </div>
 
         <!--  ROW - Crystal Buttons -->
-        <div class="row crystals">
+        <div class="row crystals mb-4">
             <div class="col-lg-12">
-                <button id="redbtn" class="m-1" onclick="game.crystalGuess('red')"><img class="crystalbtn" alt="red button" src="assets/images/red.jpg" /></button>
-                <button id="bluebtn" class="m-1"onclick="game.crystalGuess('blue')"><img class="crystalbtn" alt="blue button" src="assets/images/blue.jpg" /></button>
-                <button id="yellowbtn" class="m-1"onclick="game.crystalGuess('yellow')"><img class="crystalbtn" alt="yellow button" src="assets/images/yellow.jpg" /></button>
-                <button id="greenbtn" class="m-1"onclick="game.crystalGuess('green')"><img class="crystalbtn" alt="green button" src="assets/images/green.jpg" /></button>
+                <button id="redbtn" class="m-1" onclick="game.crystalGuess('red')"><img class="crystalbtn" alt="red button"
+                        src="assets/images/red.jpg" /></button>
+                <button id="bluebtn" class="m-1" onclick="game.crystalGuess('blue')"><img class="crystalbtn" alt="blue button"
+                        src="assets/images/blue.jpg" /></button>
+                <button id="yellowbtn" class="m-1" onclick="game.crystalGuess('yellow')"><img class="crystalbtn" alt="yellow button"
+                        src="assets/images/yellow.jpg" /></button>
+                <button id="greenbtn" class="m-1" onclick="game.crystalGuess('green')"><img class="crystalbtn" alt="green button"
+                        src="assets/images/green.jpg" /></button>
+            </div>
+        </div>
+
+        <!--  ROW - Hint Card -->
+        <div class="col-lg-12">
+            <div class="card" id="hints" style="display:none";>
+                <div class="card-header text-white text-center" id="crystalHdr">Hints</div>
+                <div class="card-body bg-light">
+                    <p class="card-text small">
+                        <table class="table table-bordered mb-0">
+                            <tr>
+                                <th scope="row">Red Crystal</th>
+                                <td id="redElem" class="text-center bg-danger text-white">0</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Blue Crystal</th>
+                                <td id="blueElem" class="text-center bg-primary text-white">0 </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Yellow Crystal</th>
+                                <td id="yellowElem" class="text-center bg-warning text-white">0 </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Green Crystal</th>
+                                <td id="greenElem" class="text-center bg-success text-white">0 </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Solution Set (hit 's')</th>
+                                <td id="solutionElem" class="text-center">None found </td>
+                            </tr>
+                        </table>
+                    </p>
+                </div>
             </div>
         </div>
     </div>

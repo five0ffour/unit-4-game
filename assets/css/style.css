@@ -35,6 +35,12 @@ p {
     background-color: tan;
 }
 
+#hints {
+    text-align: left;
+    font-size: 1.5em;
+    background-color: tan;
+}
+
 /* -----  Crystal Buttons -------*/
 
 #crystals {
