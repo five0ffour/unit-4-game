@@ -18,16 +18,19 @@ function findAllSolutions(choices, goal) {
         console.log("findAllSolustions() - could not find a solution.");
 
     // search the tree for the goal
+    tree.traverseDF(function(node) {
+        if (node.cumValue == goal) 
+            tree.saveSolution(node);}
+        );
 
     // return the solution, the chain of parents
-    // (for now, return the whole tree)
-    return tree;
+    return tree.solution;
 }
 
 function recurseChoices(parentNode, choices, goal) {
     var found = false;
     var cumValue = parentNode.cumValue;
-
+    
     if (cumValue === goal) {
         // Solution found!
         return true;
@@ -36,21 +39,20 @@ function recurseChoices(parentNode, choices, goal) {
         // Solution too large
         return false;
     } else {
-        if (cumValue + choices[choices.length] > goal) 
-            choices.pop();
+        // Make a local copy of the choices so we can modify it while recursing
+        var localchoices = choices.slice();
 
-        // For each choice,  add a child node to the root
-        for (var i = choices.length-1; i >= 0; i--) {
-            var sum = 0;
-            var value = choices[i];
-            var leafNode = parentNode.addNode(value,parentNode);
+        // Last node undershoots goal, remove the largest guess(es) if that/they would exceed target
+        while ((localchoices.length > 0) &&
+               ((cumValue + localchoices[localchoices.length-1]) > goal))
+               localchoices.pop();
+
+        // For each choice, add a child node to the parent and iterate down
+        for (var i = localchoices.length-1; i >= 0; i--) {
+            var value = localchoices[i];
+            var childNode = parentNode.addNode(value,parentNode);
             
-            // // make a copy of the choices array, minus the last element
-            // var leafChoices = [];
-            // for (var j=i-1; (j >= 0); j--) 
-            //     leafChoices.unshift(choices[j]);
-
-            if (recurseChoices(leafNode, choices, goal)) {
+            if (recurseChoices(childNode, localchoices, goal)) {
                 // console.log("Found a solution!!");
                 return true;
             }
