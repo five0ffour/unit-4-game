@@ -1,6 +1,8 @@
 // tree - node data structure to hold permutations of our possible solution guesses 
 
+//-------------
 // - the constructor of a tree elemenet
+//-------------
 function Node(data) {
     this.data = data;
     this.parent = null;
@@ -10,6 +12,7 @@ function Node(data) {
 
 //-------------
 // - the root of the tree
+// - note it caches an array of the found solution set for efficiency
 //-------------
 function Tree(data) {
     var node = new Node(data);
@@ -20,6 +23,7 @@ function Tree(data) {
 //-------------
 // addNode() - add node to the tree structure under a parent
 //           - no smarts here, just make it a direct child
+//           - save the sum of the ancestors for effiency when comparing to our goal
 //-------------
 Node.prototype.addNode = function (data, parent) {
     var node = new Node(data);
@@ -31,6 +35,7 @@ Node.prototype.addNode = function (data, parent) {
 
 //-------------
 // saveSolution() - walk up the tree from the given node and save the data to a top level array
+//                - used to cache to solution set of the magic branch
 //-------------
 Tree.prototype.saveSolution = function (node) {
     while ((node != null) & (node.data != 0)) {

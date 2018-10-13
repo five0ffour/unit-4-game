@@ -79,7 +79,8 @@ var game = {
     },
 
     //------------------
-    // crystalGuess() - player made a guess using a crystal
+    // crystalGuess() - player made a guess using a crystal, 
+    //                 - this method is the main game engine event processor
     //------------------
     crystalGuess: function (crystal) {
 
@@ -147,13 +148,13 @@ var game = {
         else
             console.log("findSolution() - could not find a solution.");
 
-        // walk the tree leaves for the branch with goal using a callback function to compare
+        // walk the tree leaves to find the branch that sums to the goal using a callback function to compare
         tree.traverseDF(function (node) {
             if (node.cumValue == goal)
                 tree.saveSolution(node);
         });
 
-        // return the solution: the chain of parents of the magic branch
+        // return the solution: the chain of parents of the magic branch (if one exists)
         return tree.solution;
     },
 
