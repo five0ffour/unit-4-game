@@ -1,6 +1,6 @@
 # unit-4-game
 
-## Crystals Collector Guessing Games
+## Crystals Collector Guessing Game
 
 Crystals Collector is not as much a game as a mathematical puzzle with a pasted on crystal theme.   The object of the game is to "collect" crystals of numeric value and figure out the right combination to hit the target number exactly.
 
@@ -14,16 +14,16 @@ The game has a couple of features available to the keyboard using upper or lower
     H          --  toggles a hint card to show the crystal values and solution (see 'S' key)
     S          --  cheat key to compute and display a possible solution shown on the hint card (and console) 
 
-##Getting Started
+## Getting Started
 To get started,  copy the program to a clean directory and run "index.html" in your browser.   The program is ready to start automatically.  From there,  simply use your keyboard or mouse to enter your guesses each round.   The game will automatically restart after a win or loss.
 
-##Prerequisites
+## Prerequisites
 A modern browser and an internet connection.   Chrome works best, but others should be fine too.
 A modern IDE - it was developed using Visual Studio Code, but any text editor would work, including notepad.
 GitHub 
 GitBash installed locally
 
-##Installing
+## Installing
 1.  Find a Locate an empty directory on your hard drive
 2.  Open a bash terminal in that directory
 3.  Clone the unit-4-game repo down using  Git   
@@ -31,7 +31,7 @@ GitBash installed locally
 4.  Open index.html in your favorite browser
         It should display the game board and prompt you for an entry
 
-##Developer notes
+## Developer notes
 index.html:  main entry point and user interface
 input.js:  the main onKeyUp and mouse click events processor, game events          
 game.js:   the bulk of the game state, rules handling and solution logic            
@@ -42,12 +42,12 @@ Overall the game is very straightforward.  The only special feature is the solve
 recursive algorthim to work down various paths until it finds a match.   There may be faster or more efficient ways to find 
 an answer, but this one is fairly successful.
 
-##Built With
+## Built With
 Bootstrap - The CSS framework used
 
-##Authors
+## Authors
 Michael Galanreau - Initial work - Five0fFour
 
-##Acknowledgments
+## Acknowledgments
 www.subtlepatterns.com  - wallpaper image
 crystals banner 
