@@ -43,7 +43,8 @@ recursive algorthim to work down various paths until it finds a match.   There m
 an answer, but this one is fairly successful.
 
 ## Built With
-Bootstrap - The CSS framework used
+Bootstrap 4.0.0 - The CSS framework used
+jQuery 3.3.1 - JavaScript library
 
 ## Authors
 Michael Galanreau - Initial work - Five0fFour
