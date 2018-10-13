@@ -15,14 +15,18 @@ var game = {
     losses: 0,
     won: false,
 
+    //-------------------
     // generateRandomNum() - randomly generates a number within the specified range
+    //-------------------
     generateRandomNum: function (low, high) {
         var num = (Math.floor(Math.random() * (high - low + 1) + low));
         // console.log("game.generateRandomNum() - The randomly selected num between " + low + " and " + high + " is: \"" + num + "\"");
         return num;
     },
 
-    // resetGame - clears the board and resets the target value and crystal nums for a new game
+    //-------------------
+    // resetGame() - clears the board and resets the target value and crystal nums for a new game
+    //-------------------
     resetGame: function () {
         this.solution = [];
         this.won = false;
@@ -40,19 +44,25 @@ var game = {
             this.greenValue + "]");
     },
 
+    //-------------------
     // wonGame() - updates if game's victory conditions are met
+    //-------------------
     wonGame: function () {
         this.wins++;
         this.won = true;
     },
 
+    //-------------------
     // lostGame() - updates if game's victory conditions are exceeded
+    //-------------------
     lostGame: function () {
         this.losses++;
         this.won = false;
     },
 
+    //-------------------
     // checkGameEnd() - return flag if we met the game end conditions, update win/losses appropriately
+    //-------------------
     checkGameEnd: function () {
 
         // Game is still playing
@@ -68,7 +78,9 @@ var game = {
         return true;
     },
 
+    //------------------
     // crystalGuess() - player made a guess using a crystal
+    //------------------
     crystalGuess: function (crystal) {
 
         var color = crystal.toLowerCase();
@@ -105,64 +117,78 @@ var game = {
         prompts.reportResults(this);
     },
 
-    // computeSoluton() - looks to find an answer in the solution set using a largest value first algorithm
-    //                  - puts the answer in the game object's solution array
-    //                  - not quite right yet.
-    computeSolution: function () {
-        var found = false;
-        var count = 0;
-        var crystals = [];
 
-        /* Clear out any previous runs */
-        this.solution = [];
+    //---------------------
+    // findSolution() - kicks off a recursive routine to run permutations to find the solution
+    //---------------------
+    findSolution: function () {
+        var goal = this.targetNum; // local copy of the target we're trying to find
+        var choices = []; // local array of the crystal choices
 
-        /* Load the stack with the randomly generated crystal values */
-        crystals.push(this.redValue);
-        crystals.push(this.blueValue);
-        crystals.push(this.yellowValue);
-        crystals.push(this.greenValue);
+        // Save the possible crystal guesses
+        choices.push(game.redValue);
+        choices.push(game.blueValue);
+        choices.push(game.yellowValue);
+        choices.push(game.greenValue);
 
-        /* Sort the array so the largest is at the end ready to be popped first */
-        crystals.sort(function (a, b) {
+        // sort the input choices from smallest to largest
+        choices.sort(function (a, b) {
             return a - b
         });
 
-        /* Loop through the crystals, pop the largest crystal and apply the total */
-        var num = 0;
-        while (!found) {
+        // create a tree to hold the permutations
+        // note: root element has no data value
+        var tree = new Tree(0);
 
-            // Grab the top crystal
-            if (crystals.length > 0) {
-                num = crystals.pop();
-            }
+        // add permutations of all of the choices as children of the root node
+        // keep count of the sum of any branch to see if it matches the goal
+        if (game.recurseChoices(tree._root, choices, goal) == true)
+            console.log("findSolution() - found a solution!!");
+        else
+            console.log("findSolution() - could not find a solution.");
 
-            // Apply it to the solution
-            if (count === this.targetNum) {
-                // Solution Found
-                found = true;
-                console.log("computeSolution() - we found a solution!!");
-            } else if (count < this.targetNum) {
-                // Under the target
-                this.solution.push(num);
-                crystals.push(num);
-                count += num;
-            } else {
-                // Overshot the target, undo last move
-                count -= this.solution.pop();
-            }
+        // walk the tree leaves for the branch with goal using a callback function to compare
+        tree.traverseDF(function (node) {
+            if (node.cumValue == goal)
+                tree.saveSolution(node);
+        });
 
-            if (crystals.length == 0) {
-                if (!found) {
-                    console.log("computeSolution() -- we couldn't find a solution");
+        // return the solution: the chain of parents of the magic branch
+        return tree.solution;
+    },
+
+    //---------------------
+    // recurseChoices() - a private function used by find soluitions to create new permutations
+    //---------------------
+    recurseChoices : function (parentNode, choices, goal) {
+        var found = false;
+        var cumValue = parentNode.cumValue;
+
+        if (cumValue === goal) {
+            // Solution found!
+            return true;
+        } else if (cumValue > goal) {
+            // Solution too large
+            return false;
+        } else {
+            // Make a local copy of the choices so we can modify it while recursing
+            var localchoices = choices.slice();
+
+            // Last node undershoots goal, remove the largest guess(es) if that/they would exceed target
+            while ((localchoices.length > 0) &&
+                ((cumValue + localchoices[localchoices.length - 1]) > goal))
+                localchoices.pop();
+
+            // For each choice, add a child node to the parent and iterate down
+            for (var i = localchoices.length - 1; i >= 0; i--) {
+                var value = localchoices[i];
+                var childNode = parentNode.addNode(value, parentNode);
+
+                if (game.recurseChoices(childNode, localchoices, goal)) {
+                    // console.log("Found a solution!!");
+                    return true;
                 }
-                return;
             }
-            
-            // Dump stack for debugging
-            console.log(this.solution);
-
         }
-
-       return found;
     }
 }

@@ -48,25 +48,13 @@ $(document).ready(function () {
                 break;
 
             case "s":
-            case "S":
-                game.computeSolution();
-                console.log("onKeyUp():  solution: " + game.solution);
-                break;
-
-            case "t":
-            case "T": {
-                var inputArray = [];         
-                inputArray.push(game.redValue);
-                inputArray.push(game.blueValue);
-                inputArray.push(game.yellowValue);
-                inputArray.push(game.greenValue);      
-                var sol = findAllSolutions(inputArray,game.targetNum);
-                console.log("onKeyUp() - tree() ", sol);
+            case "S": 
+                game.solution = game.findSolution();
+                console.log("onKeyUp() - solution: ", game.solution);
                 break; 
-            }
 
             default:
-                console.log("onKeyUp() event:  Oops, invalid key '" + userGuess + "', we only need letters R, B, Y, G");
+                console.log("onKeyUp() event:  Oops, invalid key '" + userGuess + "', we only need letters R, B, Y, G + S");
                 break;
         }
     }
