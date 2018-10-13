@@ -56,11 +56,11 @@ $(document).ready(function () {
             case "t":
             case "T": {
                 var inputArray = [];         
-                inputArray.push(7);
-                inputArray.push(3);
-                inputArray.push(11);
-                inputArray.push(9);      
-                var sol = findAllSolutions(inputArray,40);
+                inputArray.push(game.redValue);
+                inputArray.push(game.blueValue);
+                inputArray.push(game.yellowValue);
+                inputArray.push(game.greenValue);      
+                var sol = findAllSolutions(inputArray,game.targetNum);
                 console.log("onKeyUp() - tree() ", sol);
                 break; 
             }
