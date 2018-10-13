@@ -47,8 +47,9 @@ Bootstrap 4.0.0 - The CSS framework used
 jQuery 3.3.1 - JavaScript library
 
 ## Authors
-Michael Galanreau - Initial work - Five0fFour
+Michael Galarneau - Initial work - Five0fFour
 
 ## Acknowledgments
-www.subtlepatterns.com  - wallpaper image
-crystals banner 
+www.subtlepatterns.com  - wallpaper image  
+crystals banner  
+favicon image
