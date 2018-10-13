@@ -7,15 +7,15 @@ var prompts = {
     //-------------------
     // prompts Variables 
     //-------------------
-    wins           : 0,
-    losses         : 0,
-    targetNum      : 0,
-    totalNum       : 0,
-    redElem        : 0,
-    blueElem       : 0,
-    yellowElem     : 0,
-    greenElem      : 0,
-    solutionElem   : "",
+    wins: 0,
+    losses: 0,
+    targetNum: 0,
+    totalNum: 0,
+    redElem: 0,
+    blueElem: 0,
+    yellowElem: 0,
+    greenElem: 0,
+    solutionElem: "",
 
     //------------------
     // prompts Methods 
@@ -24,48 +24,48 @@ var prompts = {
     //---
     // getElementIds() - holds the references to the DOM elements to update 
     //---
-    getElementIds : function (document) {
-         this.targetNum      = document.getElementById("targetNum");
-         this.wins           = document.getElementById("wins");
-         this.losses         = document.getElementById("losses");
-         this.totalNum       = document.getElementById("totalNum");
-         this.redElem        = document.getElementById("redElem");
-         this.blueElem       = document.getElementById("blueElem");
-         this.yellowElem     = document.getElementById("yellowElem");
-         this.greenElem      = document.getElementById("greenElem");
-         this.solutionElem   = document.getElementById("solutionElem");
-     }, 
+    getElementIds: function (document) {
+        this.targetNum = $("#targetNum");
+        this.wins = $("#wins");
+        this.losses = $("#losses");
+        this.totalNum = $("#totalNum");
+        this.redElem = $("#redElem");
+        this.blueElem = $("#blueElem");
+        this.yellowElem = $("#yellowElem");
+        this.greenElem = $("#greenElem");
+        this.solutionElem = $("#solutionElem");
+    },
 
     //---
     // reportResutls() - updates the stored DOM display elements with the passed results
     //---
-    reportResults : function (game) {
-        this.wins.textContent           = game.wins;
-        this.losses.textContent         = game.losses;
-        this.targetNum.textContent      = game.targetNum;
-        this.totalNum.textContent       = game.currentNum;
-        this.redElem.textContent        = game.redValue;
-        this.blueElem.textContent       = game.blueValue;
-        this.yellowElem.textContent     = game.yellowValue;
-        this.greenElem.textContent      = game.greenValue;
-        this.solutionElem.textContent   = game.solution;
+    reportResults: function (game) {
+        $("#targetNum").text(game.wins);
+        $("#losses").text(game.losses);
+        $("#targetNum").text(game.targetNum);
+        $("#totalNum").text(game.currentNum);
+        $("#redElem").text(game.redValue);
+        $("#blueElem").text(game.blueValue);
+        $("#yellowElem").text(game.yellowValue);
+        $("#greenElem").text(game.greenValue);
+        $("#solutionElem").text(game.solution);
     },
 
-     toggleHints : function() {
-        var hintsElem = document.getElementById("hintsHdr");
-        if (hintsElem.style.display === "none") {
-            hintsElem.style.display = "block";
+    toggleHints: function () {
+        var hintsElem = $("#hintsHdr");
+        if (hintsElem.css("display") === "none") {
+            hintsElem.css("display", "block");
         } else {
-            hintsElem.style.display = "none";
+            hintsElem.css( "display",  "none");
         }
     },
 
-    toggleInstructions : function() {
-        var instructionElem = document.getElementById("instructions");
-        if (instructionElem.style.display === "none") {
-            instructionElem.style.display = "block";
+    toggleInstructions: function () {
+        var instructionElem = $("#instructions");
+        if (instructionElem.css("display") === "none") {
+            instructionElem.css("display", "block");
         } else {
-            instructionElem.style.display = "none";
+            instructionElem.css("display", "none");
         }
     }
 }
