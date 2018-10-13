@@ -13,11 +13,6 @@
 <!--     game.js:   the bulk of the game state and rules handling             -->
 <!--     prompts.js:  the UI interface for the dynamic elements of the page   -->
 <!--     tree.js:   data structure used for solutio solving                   -->
-
-<!-- NOTE TO TA:  Per instructions,  this app is linked from my portoflio page          -->
-<!--              at https://five0ffour.github.io/Basic-Portfolio/portfolio.html        -->
-<!--              at https://five0ffour.github.io/Bootstrap-Portfolio/portfolio.html    -->
-<!--              at https://five0ffour.github.io/Responsive-Portfolio/portfolio.html   -->
 <!DOCTYPE <!DOCTYPE html>
 <html>
 
@@ -122,13 +117,13 @@
         <!--  ROW - Crystal Buttons -->
         <div class="row crystals mb-4">
             <div class="col-lg-12">
-                <button id="redbtn" class="m-1" onclick="game.crystalGuess('red')"><img class="crystalbtn" alt="red button"
+                <button id="redbtn" class="m-1 guess" value="red"><img class="crystalbtn" alt="red button"
                         src="assets/images/red.jpg" /></button>
-                <button id="bluebtn" class="m-1" onclick="game.crystalGuess('blue')"><img class="crystalbtn" alt="blue button"
+                <button id="bluebtn" class="m-1 guess" value="blue"><img class="crystalbtn" alt="blue button"
                         src="assets/images/blue.jpg" /></button>
-                <button id="yellowbtn" class="m-1" onclick="game.crystalGuess('yellow')"><img class="crystalbtn" alt="yellow button"
+                <button id="yellowbtn" class="m-1 guess" value="yellow"><img class="crystalbtn" alt="yellow button"
                         src="assets/images/yellow.jpg" /></button>
-                <button id="greenbtn" class="m-1" onclick="game.crystalGuess('green')"><img class="crystalbtn" alt="green button"
+                <button id="greenbtn" class="m-1 guess" value="green"><img class="crystalbtn" alt="green button"
                         src="assets/images/green.jpg" /></button>
             </div>
         </div>

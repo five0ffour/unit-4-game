@@ -5,11 +5,13 @@ var input = {
 
     //---
     // validKey() - Determine if this an acceptable keystroke.
+    //            - Only accept r/b/y/g/h/i/s or their capital counterparts
     //---
     validKey: function (key) {
 
         // Regex expression parsing,  accept alphanumerics only, upper or lower case
-        if (!/^[a-zA-Z]*$/g.test(key)) {
+        //  (!/^[a-zA-Z]*$/g.test(key))     <-- all alphas allowed
+        if (!/^[rRbByYgGiIhHsH]*$/g.test(key)) {
             console.log("input.validKey() - invalid character [" + key + "]");
             return false;
         }
@@ -21,6 +23,18 @@ var input = {
 
 $(document).ready(function () {
 
+    //---------------------------------
+    // Guess - on click event handler - passes the crystal button click guesses on to the game engine for processing
+    //---------------------------------
+    $(".guess").on("click", function (event) {
+
+        game.crystalGuess($(this).val());
+
+    });
+
+    //---------------------------------
+    // OnKeyUp() event handler - handles all the keyboard inputs
+    //---------------------------------
     document.onkeyup = function (event) {
 
         // Get keystroke
@@ -29,27 +43,31 @@ $(document).ready(function () {
         switch (userGuess) {
             case "r":
             case "R":
+                // Selected Red Crystal
                 game.crystalGuess('red');
                 break;
 
             case "b":
             case "B":
+                // Selected Blue Crystal
                 game.crystalGuess('blue');
                 break;
 
             case "y":
             case "Y":
+                // Selected Yellow Crystal
                 game.crystalGuess('yellow');
                 break;
 
             case "g":
             case "G":
+                // Selected Green  Crystal
                 game.crystalGuess('green');
                 break;
 
             case "h":
             case "H":
-                // Show the crystal values
+                // Show the Hint card of crystal values and solution set (if calculated)
                 prompts.toggleHints();
                 break;
 
@@ -68,7 +86,7 @@ $(document).ready(function () {
                 break;
 
             default:
-                console.log("onKeyUp() event:  Oops, invalid key '" + userGuess + "', we only need letters R, B, Y, G, H + S");
+                console.log("onKeyUp() event:  Oops, invalid key '" + userGuess + "', we only need letters R, B, Y, G, I, H + S");
                 break;
         }
     }
