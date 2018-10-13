@@ -1,5 +1,6 @@
 //--------
 // prompts - holds the references to the DOM HTML elements and updates them with the passed game stats
+//         - has the handler functions to toggle  card display
 //--------
 var prompts = {
 
@@ -51,7 +52,7 @@ var prompts = {
     },
 
      toggleHints : function() {
-        var hintsElem = document.getElementById("hints");
+        var hintsElem = document.getElementById("hintsHdr");
         if (hintsElem.style.display === "none") {
             hintsElem.style.display = "block";
         } else {

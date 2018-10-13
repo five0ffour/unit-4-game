@@ -35,6 +35,14 @@ p {
     background-color: tan;
 }
 
+/* ------ Hints Card -------- */
+
+#hintsHdr {
+    text-align: left;
+    font-size: 1.0em;
+    background-color: tan;
+}
+
 #hints {
     text-align: left;
     font-size: 1.5em;

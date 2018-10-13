@@ -1,3 +1,23 @@
+<!-- Author:  Michael Galarneau                                               -->
+<!-- Class:  UNH Bootcamp                                                     -->
+<!-- Assignment:  JQuery Assignment                                           -->
+<!-- Date:  10/13/2018                                                        -->
+<!-- Filename:  index.html                                                    -->
+<!--                                                                          -->
+<!-- Notes:  This file is the main entry point for our Crystal Quest themed   -->
+<!--     Word Guessing Game.  The instructions for the game are in README.md  -->
+<!--     All javascript but the includes are abstracted out of this file and  -->
+<!--     stored in following locations.                                       -->
+<!--                                                                          -->
+<!--     input.js:  the main onKeyUp processor and game event loop            -->  
+<!--     game.js:   the bulk of the game state and rules handling             -->
+<!--     prompts.js:  the UI interface for the dynamic elements of the page   -->
+<!--     tree.js:   data structure used for solutio solving                   -->
+
+<!-- NOTE TO TA:  Per instructions,  this app is linked from my portoflio page          -->
+<!--              at https://five0ffour.github.io/Basic-Portfolio/portfolio.html        -->
+<!--              at https://five0ffour.github.io/Bootstrap-Portfolio/portfolio.html    -->
+<!--              at https://five0ffour.github.io/Responsive-Portfolio/portfolio.html   -->
 <!DOCTYPE <!DOCTYPE html>
 <html>
 
@@ -41,14 +61,13 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card mb-4" id="instructions">
-                    <div class="card-header text-white">Instructions</div>
+                    <div class="card-header text-white">Instructions (hit 'i' to toggle)</div>
                     <div class="card-body bg-light">
                         <p class="card-text small">
                             <p>You will be given a random number and four crystals of unknown value at game start </p>
                             <p> By clicking on a crystal (or hitting r/b/y/g) you will add a specific amount of points to your total score</p>
                             <p>You win the game by matching your total score to the random number, you lose the game if you exceed the random number </p>
                             <p>Each time when the game starts, the game will change the values of each crystal and the target</p>
-                            <p class="text-info">Tip: Hit "i" to hide/show these instructions</p>
                             <p class="text-info">Hint: if you get stuck, use 'h' to get a hint (shhhh! I won't tell!)</p>
                         </p>
                     </div>
@@ -115,12 +134,12 @@
         </div>
 
         <!--  ROW - Hint Card -->
-        <div class="col-lg-12">
-            <div class="card" id="hints" style="display:none";>
-                <div class="card-header text-white text-center" id="crystalHdr">Hints</div>
+        <div class="col-lg-6 p-0">
+            <div class="card" id="hintsHdr" style="display:none">
+                <div class="card-header text-white text-center" id="crystalHdr">Hints (hit 'h' to toggle)</div>
                 <div class="card-body bg-light">
                     <p class="card-text small">
-                        <table class="table table-bordered mb-0">
+                        <table class="table table-bordered mb-0  hints">
                             <tr>
                                 <th scope="row">Red Crystal</th>
                                 <td id="redElem" class="text-center bg-danger text-white">0</td>

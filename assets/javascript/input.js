@@ -68,7 +68,7 @@ $(document).ready(function () {
                 break;
 
             default:
-                console.log("onKeyUp() event:  Oops, invalid key '" + userGuess + "', we only need letters R, B, Y, G + S");
+                console.log("onKeyUp() event:  Oops, invalid key '" + userGuess + "', we only need letters R, B, Y, G, H + S");
                 break;
         }
     }

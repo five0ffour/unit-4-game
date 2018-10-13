@@ -1,3 +1,6 @@
+// tree - node data structure to hold permutations of our possible solution guesses 
+
+// - the constructor of a tree elemenet
 function Node(data) {
     this.data = data;
     this.parent = null;
@@ -5,12 +8,19 @@ function Node(data) {
     this.children = [];
 }
 
+//-------------
+// - the root of the tree
+//-------------
 function Tree(data) {
     var node = new Node(data);
     this._root = node;
     this.solution = [];
 }
 
+//-------------
+// addNode() - add node to the tree structure under a parent
+//           - no smarts here, just make it a direct child
+//-------------
 Node.prototype.addNode = function (data, parent) {
     var node = new Node(data);
     node.parent = parent;
@@ -19,6 +29,9 @@ Node.prototype.addNode = function (data, parent) {
     return node;
 }
 
+//-------------
+// saveSolution() - walk up the tree from the given node and save the data to a top level array
+//-------------
 Tree.prototype.saveSolution = function (node) {
     while ((node != null) & (node.data != 0)) {
         this.solution.push(node.data);
@@ -26,7 +39,10 @@ Tree.prototype.saveSolution = function (node) {
     }
 }
 
-// traverseDF - traverse tree depth first 
+//-------------
+// traverseDF - traverse tree depth first and apply callback function
+//            - used in searching for the leaf node of the solution branch
+//-------------
 Tree.prototype.traverseDF = function (callback) {
 
     (function recurse(currentNode) {
